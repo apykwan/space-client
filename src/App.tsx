@@ -1,12 +1,13 @@
-import './App.css'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 
 import NavBar from './components/NavBar';
 import LoginComponent from './components/LoginComponent';
 import CreateSpace from './components/spaces/CreateSpace';
+import Spaces from './components/spaces/Spaces';
 import { AuthService } from './services/AuthService';
 import { DataService } from './services/DataService';
+import './App.css';
 
 const authService = new AuthService();
 const dataService = new DataService(authService);
@@ -41,7 +42,7 @@ function App() {
         },
         {
           path: "/spaces",
-          element: <div>Spaces page </div>,
+          element: <Spaces dataService={dataService} />,
         },
       ]
     },
